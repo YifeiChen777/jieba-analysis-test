@@ -1,8 +1,33 @@
 import sys
 
 import jieba
+import math
+import os
 import jieba.analyse
 from optparse import OptionParser
+
+def small_corpus_idf(directory):
+    documents = []
+    word_set = set()
+    for filename in os.listdir(directory):
+        l = []
+        dic_file = os.path.join(directory, filename)
+        with open(dic_file, "r") as file:
+            lines = file.readlines()
+            for line in lines:
+                jiecut = jieba.lcut(line)
+                l += jiecut
+        word_set.update(l)
+        documents.append(l)
+    total_document = len(documents)
+    for word in word_set:
+        count = 0
+        for d in documents:
+            if word in d:
+                count += 1
+        idf = math.log(total_document / count)
+        print(word + " " + str(idf))
+
 
 def jieba_analyze(filename):
     USAGE = "usage:    python extract_tags.py [file name] -k [top k]"
@@ -17,20 +42,21 @@ def jieba_analyze(filename):
     print(",".join(tags))
 
 if __name__ == "__main__":
-    jieba.analyse.set_stop_words("stopword.txt")
-    print("1: ")
-    jieba_analyze("static/Chi/1/1.txt")
-    print("2: ")
-    jieba_analyze("static/Chi/2/1.txt")
-    print("3: ")
-    jieba_analyze("static/Chi/3/1.txt")
-    print("Common 1: ")
-    jieba_analyze("static/Common/1/chi.txt")
-    print("Common 2: ")
-    jieba_analyze("static/Common/2/chi.txt")
-    print("Common 3: ")
-    jieba_analyze("static/Common/3/chi.txt")
-    print("Common 4: ")
-    jieba_analyze("static/Common/4/chi.txt")
-    print("Common 5: ")
-    jieba_analyze("static/Common/5/chi.txt")
+    # jieba.analyse.set_stop_words("stopword.txt")
+    # print("1: ")
+    # jieba_analyze("static/Chi/1/1.txt")
+    # print("2: ")
+    # jieba_analyze("static/Chi/2/1.txt")
+    # print("3: ")
+    # jieba_analyze("static/Chi/3/1.txt")
+    # print("Common 1: ")
+    # jieba_analyze("static/Common/1/chi.txt")
+    # print("Common 2: ")
+    # jieba_analyze("static/Common/2/chi.txt")
+    # print("Common 3: ")
+    # jieba_analyze("static/Common/3/chi.txt")
+    # print("Common 4: ")
+    # jieba_analyze("static/Common/4/chi.txt")
+    # print("Common 5: ")
+    # jieba_analyze("static/Common/5/chi.txt")
+    small_corpus_idf("static/small_corpus")
