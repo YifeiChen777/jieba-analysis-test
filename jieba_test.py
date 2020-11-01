@@ -11,6 +11,7 @@ def jieba_analyze(filename):
     # opt, args = parser.parse_args()
 
     content = open(filename, 'rb').read()
+    jieba.analyse.set_idf_path("static/chinese-idf")
     tags = jieba.analyse.extract_tags(content, topK=3)
 
     print(",".join(tags))
