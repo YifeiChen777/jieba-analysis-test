@@ -24,6 +24,8 @@ def process_file(filename):
             set_word.update(l)
     total_document = len(documents)
     for word in set_word:
+        if word == ' ' or word == '\n':
+            continue
         count = 0
         for d in documents:
             if word in d:

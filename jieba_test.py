@@ -21,6 +21,8 @@ def small_corpus_idf(directory):
         documents.append(l)
     total_document = len(documents)
     for word in word_set:
+        if word == ' ' or word == '\n':
+            continue
         count = 0
         for d in documents:
             if word in d:
@@ -36,27 +38,36 @@ def jieba_analyze(filename):
     # opt, args = parser.parse_args()
 
     content = open(filename, 'rb').read()
-    jieba.analyse.set_idf_path("static/chinese-idf")
-    tags = jieba.analyse.extract_tags(content, topK=3)
+    jieba.analyse.set_idf_path("toutiao_idf.txt")
+    tags1 = jieba.analyse.extract_tags(content, topK=5)
+    jieba.analyse.set_idf_path("small_idf.txt")
+    tags2 = jieba.analyse.extract_tags(content, topK=5)
 
-    print(",".join(tags))
+    print(",".join(tags1))
+    print(",".join(tags2))
 
 if __name__ == "__main__":
-    # jieba.analyse.set_stop_words("stopword.txt")
-    # print("1: ")
-    # jieba_analyze("static/Chi/1/1.txt")
-    # print("2: ")
-    # jieba_analyze("static/Chi/2/1.txt")
-    # print("3: ")
-    # jieba_analyze("static/Chi/3/1.txt")
-    # print("Common 1: ")
-    # jieba_analyze("static/Common/1/chi.txt")
-    # print("Common 2: ")
-    # jieba_analyze("static/Common/2/chi.txt")
-    # print("Common 3: ")
-    # jieba_analyze("static/Common/3/chi.txt")
-    # print("Common 4: ")
-    # jieba_analyze("static/Common/4/chi.txt")
-    # print("Common 5: ")
-    # jieba_analyze("static/Common/5/chi.txt")
-    small_corpus_idf("static/small_corpus")
+    jieba.analyse.set_stop_words("stopword.txt")
+    print("1: ")
+    jieba_analyze("static/Chi/1/1.txt")
+    print("2: ")
+    jieba_analyze("static/Chi/2/1.txt")
+    print("3: ")
+    jieba_analyze("static/Chi/3/1.txt")
+    print("Common 1: ")
+    jieba_analyze("static/Common/1/chi.txt")
+    print("Common 2: ")
+    jieba_analyze("static/Common/2/chi.txt")
+    print("Common 3: ")
+    jieba_analyze("static/Common/3/chi.txt")
+    print("Common 4: ")
+    jieba_analyze("static/Common/4/chi.txt")
+    print("Common 5: ")
+    jieba_analyze("static/Common/5/chi.txt")
+    # small_corpus_idf("static/small_corpus")
+    # with open("toutiao_idf.txt", 'r') as f:
+    #     count = 0
+    #     for line in f.readlines():
+    #         count += 1
+    #         print(count)
+    #         a,b = line.strip().split(' ')
