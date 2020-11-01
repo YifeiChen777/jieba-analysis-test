@@ -16,6 +16,7 @@ def jieba_analyze(filename):
     print(",".join(tags))
 
 if __name__ == "__main__":
+    jieba.analyse.set_stop_words("stopword.txt")
     print("1: ")
     jieba_analyze("static/Chi/1/1.txt")
     print("2: ")
