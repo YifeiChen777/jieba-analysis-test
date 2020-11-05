@@ -1,2 +1,2 @@
 # jieba-analysis-test
-Compute Chinese key word extracting with Jieba.
+Compute Chinese key word extracting using TF-IDF algorithm.
