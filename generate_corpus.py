@@ -13,7 +13,7 @@ def process_file(filename):
         lines = file.readlines()
         for line in lines:
             flag += 1
-            if flag >= 10000:
+            if flag >= 1000:
                 break
             sentence = line.rsplit('_!_')
             l = []
