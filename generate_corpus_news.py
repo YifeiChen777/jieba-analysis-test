@@ -11,13 +11,19 @@ def load_json_news(filename):
     set_word = set()
 
     f = open(filename,) 
-    data = json.load(f) 
-    contents = data['content']
-    for i in contents: 
-        jiecut = jieba.lcut(contents[i])
-        documents.append(jiecut)
-        set_word.update(jiecut)
-    f.close() 
+    # data = json.load(f) 
+    # contents = data['content']
+    with open(filename, 'r') as f:
+        flag = 0
+        for line in f:
+            if flag > 1000:
+                break
+            flag += 1
+            data = json.loads(line)
+            jiecut = jieba.lcut(data['content'])
+            documents.append(jiecut)
+            set_word.update(jiecut)
+
     total_document = len(documents)
     for word in set_word:
         if word.isspace():
@@ -31,4 +37,4 @@ def load_json_news(filename):
 
 
 if __name__ == "__main__":
-    load_json_news("static/ex_news.json")
+    load_json_news("static/news2016zh_valid.json")
