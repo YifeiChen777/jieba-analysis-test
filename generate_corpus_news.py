@@ -3,16 +3,15 @@ import sys
 import jieba
 import jieba.analyse
 from optparse import OptionParser
+from collections import defaultdict
 import math
 import json 
 
 def load_json_news(filename):
-    documents = []
-    set_word = set()
+    documents = defaultdict(int)
+    total_document = 0
 
     f = open(filename,) 
-    # data = json.load(f) 
-    # contents = data['content']
     with open(filename, 'r') as f:
         flag = 0
         for line in f:
@@ -21,19 +20,15 @@ def load_json_news(filename):
             flag += 1
             data = json.loads(line)
             jiecut = jieba.lcut(data['content'])
-            documents.append(jiecut)
-            set_word.update(jiecut)
+            for each in jiecut:
+                if each.isspace():
+                    continue
+                total_document += 1
+                documents[each] += 1
 
-    total_document = len(documents)
-    for word in set_word:
-        if word.isspace():
-            continue
-        count = 0
-        for d in documents:
-            if word in d:
-                count += 1
+    for key, value in documents.items():
         idf = math.log(total_document / count)
-        print(word + " " + str(idf))
+        print(key + " " + str(idf))
 
 
 if __name__ == "__main__":
