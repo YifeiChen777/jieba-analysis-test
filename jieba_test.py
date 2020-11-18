@@ -39,7 +39,7 @@ def small_corpus_idf(directory):
         # print(word + " " + str(idf))
         diction[word] = idf
     a = sorted(diction.items(), key=lambda x: x[1], reverse=False)
-    return [each[0] for each in a[0:10]]
+    return [each[0] for each in a[0:30]]
     # print(a[0:10])
 
 
@@ -49,14 +49,19 @@ def jieba_analyze(filename):
     parser.add_option("-k", dest="topK")
     # opt, args = parser.parse_args()
 
+    jieba.analyse.set_stop_words("stopword.txt")
+
     content = open(filename, 'rb').read()
-    jieba.analyse.set_idf_path("toutiao_idf.txt")
+    jieba.analyse.set_idf_path("new_idf.txt")
     tags1 = jieba.analyse.extract_tags(content, topK=5)
 
     print(",".join(tags1))
 
 if __name__ == "__main__":
-    small_corpus_idf("static/small_corpus")
+    print(" ")
+    small = small_corpus_idf("static/small_corpus")
+    print(small)
+    print(" ")
     print("1: ")
     jieba_analyze("static/Chi/1/1.txt")
     print("2: ")
