@@ -1,3 +1,4 @@
+toutiao news:
 1: 
 阿尔法,围棋,认输,对决,赛后
 2: 
@@ -18,38 +19,28 @@ Common 5:
 ['围棋', '阿尔法', '没有', '大战', '柯洁', '表示', '太', '4', '前', '进行', '比赛', '举行', '已经', '1',
  '一点', '今天', '结束', '发布会', '一直', '对决', '过去', '人机', '实际', '量', '享受', '找', '印象',
  '取得', '表现', '谷歌']
-First 1000:
-1: 
-阿尔法,围棋,表示,任何,对决
-2: 
-比赛,albergo,人类,双方,13
-3: 
-然后,那个,觉得,所以,自己
-Common 1: 
-所以,看好,立足于,因为,真正
-Common 2: 
-柯洁,赛后,新闻,发布会,表示
-Common 3: 
-胜利,李世石,获得,人机,大战
-Common 4: 
-对于,柯洁,落败,大脑,负责人
-Common 5: 
-人工智能,虽然,过去,几年,取得
 
 Entire corpus:
- 1: 
-阿尔法,围棋,认输,任何,赛后
+1: 
+阿尔法,围棋,认输,对决,赛后
 2: 
-albergo,比赛,人类,双方,李世石
+albergo,比赛,人类,李世石,围棋
 3: 
-然后,那个,觉得,自己,围棋
+围棋,阿尔法,觉得,下载,谢谢
 Common 1: 
-立足于,看好,真正,还有,认为
+立足于,看好,真正,认为,情况
 Common 2: 
-柯洁,阿尔法,围棋,赛后,发布会
+柯洁,阿尔法,围棋,赛后,缺陷
 Common 3: 
-胜利,李世石,人机,对尔法,连败
+李世石,胜利,人机,对尔法,连败
 Common 4: 
 柯洁,落败,Alphago,巨大进步,谷歌
 Common 5: 
-人工智能,令人生畏,围棋,印象,深刻['game', 'The', 'players', 'moves', 'Go', 'human', 'games', 'creative', 'really', 'played', 'AI', 'world', 'board', 'one', 'asked', 'beat', 'AlphaGo', 'Chinese', 'see', 'much', 'https://www.fb.com/vicevideo', 'here:', 'more:', 'videos', 'says']
+人工智能,围棋,令人生畏,进步,印象
+
+Common words in english:
+['game', 'The', 'players', 'moves', 'Go', 'human', 
+'games', 'creative', 'really', 'played', 'AI', 'world', 
+'board', 'one', 'asked', 'beat', 'AlphaGo', 'Chinese', 
+'see', 'much', 'https://www.fb.com/vicevideo', 'here:', 
+'more:', 'videos', 'says']
