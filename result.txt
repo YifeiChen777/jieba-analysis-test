@@ -52,4 +52,4 @@ Common 3:
 Common 4: 
 柯洁,落败,Alphago,巨大进步,谷歌
 Common 5: 
-人工智能,令人生畏,围棋,印象,深刻
+人工智能,令人生畏,围棋,印象,深刻['game', 'The', 'players', 'moves', 'Go', 'human', 'games', 'creative', 'really', 'played', 'AI', 'world', 'board', 'one', 'asked', 'beat', 'AlphaGo', 'Chinese', 'see', 'much', 'https://www.fb.com/vicevideo', 'here:', 'more:', 'videos', 'says']
