@@ -27,7 +27,7 @@ def small_corpus_idf(directory):
     total_document = len(documents)
     diction = {}
     for word in word_set:
-        if word.isspace() :
+        if word.isspace() or word.isnumeric():
             continue
         if word in stop_words:
             continue
@@ -36,7 +36,7 @@ def small_corpus_idf(directory):
             if word in d:
                 count += 1
         idf = math.log(total_document / count)
-        # print(word + " " + str(idf))
+        print(word + " " + str(idf))
         diction[word] = idf
     a = sorted(diction.items(), key=lambda x: x[1], reverse=False)
     return [each[0] for each in a[0:30]]
@@ -58,26 +58,26 @@ def jieba_analyze(filename):
     print(",".join(tags1))
 
 if __name__ == "__main__":
-    print(" ")
+    # print(" ")
     small = small_corpus_idf("static/small_corpus")
-    print(small)
-    print(" ")
-    print("1: ")
-    jieba_analyze("static/Chi/1/1.txt")
-    print("2: ")
-    jieba_analyze("static/Chi/2/1.txt")
-    print("3: ")
-    jieba_analyze("static/Chi/3/1.txt")
-    print("Common 1: ")
-    jieba_analyze("static/Common/1/chi.txt")
-    print("Common 2: ")
-    jieba_analyze("static/Common/2/chi.txt")
-    print("Common 3: ")
-    jieba_analyze("static/Common/3/chi.txt")
-    print("Common 4: ")
-    jieba_analyze("static/Common/4/chi.txt")
-    print("Common 5: ")
-    jieba_analyze("static/Common/5/chi.txt")
+    # print(small)
+    # print(" ")
+    # print("1: ")
+    # jieba_analyze("static/Chi/1/1.txt")
+    # print("2: ")
+    # jieba_analyze("static/Chi/2/1.txt")
+    # print("3: ")
+    # jieba_analyze("static/Chi/3/1.txt")
+    # print("Common 1: ")
+    # jieba_analyze("static/Common/1/chi.txt")
+    # print("Common 2: ")
+    # jieba_analyze("static/Common/2/chi.txt")
+    # print("Common 3: ")
+    # jieba_analyze("static/Common/3/chi.txt")
+    # print("Common 4: ")
+    # jieba_analyze("static/Common/4/chi.txt")
+    # print("Common 5: ")
+    # jieba_analyze("static/Common/5/chi.txt")
 
     # with open("toutiao_idf.txt", 'r') as f:
     #     count = 0

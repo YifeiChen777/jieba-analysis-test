@@ -22,7 +22,7 @@ def load_json_news(filename):
             data = json.loads(line)
             jiecut = jieba.lcut(data['content'])
             for each in set(jiecut):
-                if each.isspace():
+                if each.isspace() or each.isnumeric() or each in string.punctuation:
                     continue
                 documents[each] += 1
 
