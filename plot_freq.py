@@ -19,5 +19,5 @@ def plot_idf(idf_lst, index):
     plt.show()
 
 if __name__ == "__main__":
-    idf_lst, index = extract_idf("small_idf.txt")
+    idf_lst, index = extract_idf("static/idf/chi_small_idf.txt")
     plot_idf(idf_lst, index)

@@ -34,3 +34,4 @@ def small_corpus_idf(directory):
 if __name__ == "__main__":
     r = small_corpus_idf("static/small_english")
     print(r)
+    print(set(stopwords.words('chinese')) )
