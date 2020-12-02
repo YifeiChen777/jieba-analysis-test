@@ -52,7 +52,7 @@ def jieba_analyze(filename):
     jieba.analyse.set_stop_words("stopword.txt")
 
     content = open(filename, 'rb').read()
-    jieba.analyse.set_idf_path("new_idf.txt")
+    jieba.analyse.set_idf_path("/static/id/news_idf.txt")
     tags1 = jieba.analyse.extract_tags(content, topK=5)
 
     print(",".join(tags1))
